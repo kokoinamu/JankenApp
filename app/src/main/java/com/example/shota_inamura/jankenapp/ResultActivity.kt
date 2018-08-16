@@ -43,9 +43,9 @@ class ResultActivity : AppCompatActivity() {
 
         val result = (comHand - yourHand + 3) % 3
         when(result) {
-            0 -> result_txt.text = "DRAW"
-            1 -> result_txt.text = "YOU WIN"
-            2 -> result_txt.text = "YOU LOSE"
+            0 -> result_txt.text = "引き分け"
+            1 -> result_txt.text = "あなたの勝ち"
+            2 -> result_txt.text = "あなたの負け"
         }
 
         printScore(result)
@@ -54,57 +54,51 @@ class ResultActivity : AppCompatActivity() {
             finish()
         }
 
-        saveData(yourHand, comHand, result)
+        saveData(yourHand, result)
     }
 
-    private fun saveData(yourHand: Int, comHand: Int, result: Int) {
+    private fun saveData(yourHand: Int, result: Int) {
         val pref = PreferenceManager.getDefaultSharedPreferences(this)
         val gameCount = pref.getInt("GAME_COUNT", 0)
-        val winningStreakCount = pref.getInt("WINNING_STREAK_COUNT", 0)
         val yourScore = pref.getInt("YOUR_SCORE", 0)
-        val lastComHand = pref.getInt("LAST_COM_HAND", 0)
-        val lastResult = pref.getInt("RESULT", -1)
 
         val editor = pref.edit()
         editor.putInt("GAME_COUNT", gameCount + 1)
-                .putInt("WINNING_STREAK_COUNT",
-                        if (lastResult == 2 && result == 2) winningStreakCount + 1
-                        else 0)
                 .putInt("YOUR_SCORE",
                         if (result == 1) yourScore + 1
                         else yourScore)
                 .putInt("LAST_YOUR_HAND", yourHand)
-                .putInt("LAST_COM_HAND", comHand)
-                .putInt("BEFORE_LAST_COM_HAND", lastComHand)
-                .putInt("RESULT", result)
+                .putInt("LAST_RESULT", result)
                 .apply()
     }
 
     private fun getHand(): Int {
-        var hand = (Math.random() * 3).toInt()
         val pref = PreferenceManager.getDefaultSharedPreferences(this)
-        val gameCount = pref.getInt("GAME_COUNT", 0)
-        val winningStreakCount = pref.getInt("WINNING_STREAK_COUNT", 0)
+        val lastResult = pref.getInt("LAST_RESULT", -1)
         val lastYourHand = pref.getInt("LAST_YOUR_HAND", 0)
-        val lastComHand = pref.getInt("LAST_COM_HAND", 0)
-        val beforeLastComHand = pref.getInt("BEFORE_LAST_COM_HAND", 0)
-        val result = pref.getInt("RESULT", -1)
 
-        if (gameCount == 1) {
-            if (result == 2) {
-                while (lastComHand == hand) {
-                    hand = (Math.random() * 3).toInt()
-                }
-            } else if (result == 1) {
-                hand = (lastYourHand - 1 + 3) % 3
-            }
-        } else if (winningStreakCount > 0) {
-            if (beforeLastComHand == lastComHand) {
-                while (lastComHand == hand) {
-                    hand = (Math.random() * 3).toInt()
-                }
+//        基本の手はランダム
+        var hand = (Math.random() * 3).toInt()
+
+//        以下、日本じゃんけん協会「勝利の法則」より
+//        3.あいこには負ける手を
+//        4.チョキのあいこにはチョキを
+        if (lastResult == 0) {
+            hand = when(lastYourHand) {
+                gu, choki -> choki
+                pa -> gu
+                else -> gu
             }
         }
+//        7.勝ち手は続く
+        if (lastResult == 1) {
+            hand = when(lastYourHand) {
+                gu -> pa
+                choki, pa -> lastYourHand - 1
+                else -> gu
+            }
+        }
+
         return hand
     }
 
