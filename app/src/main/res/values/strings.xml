@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">JankenApp</string>
+    <string name="choki_btn">チョキ</string>
+    <string name="gu_btn">グー</string>
+    <string name="pa_btn">パー</string>
+    <string name="janken_txt">じゃんけん……</string>
+    <string name="back_btn">戻る</string>
+    <string name="result_txt">RESULT</string>
+    <string name="your_txt">あなた</string>
+    <string name="vs_txt">vs</string>
+    <string name="your_hand_txt">YOUR_HAND</string>
+    <string name="your_score_txt">YOUR_SCORE</string>
+    <string name="com_txt">COM</string>
+    <string name="com_hand_txt">COM_HAND</string>
+</resources>
