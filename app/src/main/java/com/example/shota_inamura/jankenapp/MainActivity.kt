@@ -1,11 +1,11 @@
 package com.example.shota_inamura.jankenapp
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,8 +23,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onJankenBtnTapped(view: View?) {
-        val intent = Intent(this, ResultActivity::class.java)
-        intent.putExtra("YOUR_HAND", view?.id)
-        startActivity(intent)
+        startActivity<ResultActivity>("YOUR_HAND" to view?.id)
     }
 }
