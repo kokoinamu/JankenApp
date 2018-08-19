@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/choki_btn"
+        android:id="@+id/chokiBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -16,35 +16,35 @@
         android:layout_marginTop="8dp"
         android:text="@string/choki_btn"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/pa_btn"
-        app:layout_constraintStart_toEndOf="@+id/gu_btn"
+        app:layout_constraintEnd_toStartOf="@+id/paBtn"
+        app:layout_constraintStart_toEndOf="@+id/guBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498" />
 
     <Button
-        android:id="@+id/gu_btn"
+        android:id="@+id/guBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/gu_btn"
-        app:layout_constraintEnd_toStartOf="@+id/choki_btn"
+        app:layout_constraintEnd_toStartOf="@+id/chokiBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/choki_btn" />
+        app:layout_constraintTop_toTopOf="@+id/chokiBtn" />
 
     <Button
-        android:id="@+id/pa_btn"
+        android:id="@+id/paBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/pa_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/choki_btn"
-        app:layout_constraintTop_toTopOf="@+id/choki_btn" />
+        app:layout_constraintStart_toEndOf="@+id/chokiBtn"
+        app:layout_constraintTop_toTopOf="@+id/chokiBtn" />
 
     <TextView
-        android:id="@+id/janken_txt"
+        android:id="@+id/jankenText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -54,7 +54,7 @@
         android:text="@string/janken_txt"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/choki_btn"
+        app:layout_constraintBottom_toTopOf="@+id/chokiBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

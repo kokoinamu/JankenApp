@@ -7,7 +7,7 @@
     tools:context=".ResultActivity">
 
     <Button
-        android:id="@+id/back_btn"
+        android:id="@+id/backBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/result_txt"
+        android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -28,13 +28,13 @@
         android:layout_marginTop="8dp"
         android:text="@string/result_txt"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/vs_txt"
+        app:layout_constraintBottom_toTopOf="@+id/vsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/your_txt"
+        android:id="@+id/youText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/com_txt"
+        android:id="@+id/comText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/vs_txt"
+        android:id="@+id/vsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/your_hand_txt"
+        android:id="@+id/yourHandText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -81,10 +81,10 @@
         android:text="@string/your_hand_txt"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/your_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/youText" />
 
     <TextView
-        android:id="@+id/com_hand_txt"
+        android:id="@+id/comHandText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -92,10 +92,10 @@
         android:text="@string/com_hand_txt"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/com_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/comText" />
 
     <TextView
-        android:id="@+id/your_score_txt"
+        android:id="@+id/yourScoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -106,5 +106,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vs_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/vsText" />
 </android.support.constraint.ConstraintLayout>

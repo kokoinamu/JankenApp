@@ -19,16 +19,16 @@ class ResultActivity : AppCompatActivity() {
 
         val yourHand: Int
         when(id) {
-            R.id.gu_btn -> {
-                your_hand_txt.text = "グー"
+            R.id.guBtn -> {
+                yourHandText.text = "グー"
                 yourHand = gu
             }
-            R.id.choki_btn -> {
-                your_hand_txt.text = "チョキ"
+            R.id.chokiBtn -> {
+                yourHandText.text = "チョキ"
                 yourHand = choki
             }
-            R.id.pa_btn -> {
-                your_hand_txt.text = "パー"
+            R.id.paBtn -> {
+                yourHandText.text = "パー"
                 yourHand = pa
             }
             else -> yourHand = gu
@@ -36,21 +36,21 @@ class ResultActivity : AppCompatActivity() {
 
         val comHand = getHand()
         when(comHand) {
-            gu -> com_hand_txt.text = "グー"
-            choki -> com_hand_txt.text = "チョキ"
-            pa -> com_hand_txt.text = "パー"
+            gu -> comHandText.text = "グー"
+            choki -> comHandText.text = "チョキ"
+            pa -> comHandText.text = "パー"
         }
 
         val result = (comHand - yourHand + 3) % 3
         when(result) {
-            0 -> result_txt.text = "引き分け"
-            1 -> result_txt.text = "あなたの勝ち"
-            2 -> result_txt.text = "あなたの負け"
+            0 -> resultText.text = "引き分け"
+            1 -> resultText.text = "あなたの勝ち"
+            2 -> resultText.text = "あなたの負け"
         }
 
         printScore(result)
 
-        back_btn.setOnClickListener { finish() }
+        backBtn.setOnClickListener { finish() }
 
         saveData(yourHand, result)
     }
@@ -96,20 +96,16 @@ class ResultActivity : AppCompatActivity() {
                 else -> gu
             }
         }
-
         return hand
     }
 
     private fun printScore(result: Int) {
         val pref = PreferenceManager.getDefaultSharedPreferences(this)
-        var gameCount = pref.getInt("GAME_COUNT", 0)
+        val gameCount = pref.getInt("GAME_COUNT", 0) + 1
         var yourScore = pref.getInt("YOUR_SCORE", 0)
 
-        gameCount ++
-        if (result == 1) {
-            yourScore ++
-        }
+        if (result == 1) yourScore ++
 
-        your_score_txt.text = "あなたのスコア: $yourScore / $gameCount"
+        yourScoreText.text = "あなたのスコア: $yourScore / $gameCount"
     }
 }

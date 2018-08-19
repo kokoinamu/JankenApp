@@ -13,13 +13,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val pref = PreferenceManager.getDefaultSharedPreferences(this)
-        val editor = pref.edit()
-        editor.clear().apply()
+        PreferenceManager.getDefaultSharedPreferences(this).edit().clear().apply()
 
-        gu_btn.setOnClickListener{ onJankenBtnTapped(it) }
-        choki_btn.setOnClickListener { onJankenBtnTapped(it) }
-        pa_btn.setOnClickListener { onJankenBtnTapped(it) }
+        guBtn.setOnClickListener{ onJankenBtnTapped(it) }
+        chokiBtn.setOnClickListener { onJankenBtnTapped(it) }
+        paBtn.setOnClickListener { onJankenBtnTapped(it) }
     }
 
     fun onJankenBtnTapped(view: View?) {
