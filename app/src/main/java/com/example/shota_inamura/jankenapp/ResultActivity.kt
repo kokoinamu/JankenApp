@@ -50,9 +50,7 @@ class ResultActivity : AppCompatActivity() {
 
         printScore(result)
 
-        back_btn.setOnClickListener {
-            finish()
-        }
+        back_btn.setOnClickListener { finish() }
 
         saveData(yourHand, result)
     }
