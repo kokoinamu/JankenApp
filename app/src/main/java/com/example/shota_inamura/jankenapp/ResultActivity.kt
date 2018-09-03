@@ -81,15 +81,14 @@ class ResultActivity : AppCompatActivity() {
 //        以下、日本じゃんけん協会「勝利の法則」より
 //        3.あいこには負ける手を
 //        4.チョキのあいこにはチョキを
+//        7.勝ち手は続く
         if (lastResult == 0) {
             hand = when(lastYourHand) {
                 gu, choki -> choki
                 pa -> gu
                 else -> gu
             }
-        }
-//        7.勝ち手は続く
-        if (lastResult == 1) {
+        } else if (lastResult == 1) {
             hand = when(lastYourHand) {
                 gu -> pa
                 choki, pa -> lastYourHand - 1
